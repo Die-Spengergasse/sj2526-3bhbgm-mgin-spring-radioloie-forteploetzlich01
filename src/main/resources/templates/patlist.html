@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <title>Patients List</title>
@@ -10,13 +10,19 @@
     <table class="table">
         <thead>
             <tr>
-                <th>name</th>
-                <th>birth</th>
+                <th>SSN</th>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Geschlecht</th>
+                <th>Geburt</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="p : ${patients}">
-                <td th:text="${p.name}"></td>
+                <td th:text="${p.ssn}"></td>
+                <td th:text="${p.firstName}"></td>
+                <td th:text="${p.lastName}"></td>
+                <td th:text="${p.gender}"></td>
                 <td th:text="${p.birth}"></td>
             </tr>
         </tbody>

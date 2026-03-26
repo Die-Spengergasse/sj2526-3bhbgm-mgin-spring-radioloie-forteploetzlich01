@@ -1,0 +1,49 @@
+        <tbody>
+        <tr th:each="r : ${reservations}">
+            <td th:text="${r.device.id}"></td>
+            <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
+            <td th:text="${#dates.format(r.startTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${#dates.format(r.endTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${r.bodyRegion}"></td>
+            <td th:text="${r.comment}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservierungsliste</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Reservierungen</h2>
+
+    <form method="get" action="/reservation/list" class="form-inline">
+        <div class="form-group">
+            <label>Gerät</label>
+            <select name="deviceId" class="form-control">
+                <option value="">-- alle --</option>
+                <option th:each="d : ${devices}" th:value="${d.id}" th:text="${d.id + ' - ' + d.type}"></option>
+            </select>
+        </div>
+        <input type="submit" value="Filtern" class="btn btn-default">
+        <a href="/reservation/add" class="btn btn-primary">Neue Reservierung</a>
+    </form>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Gerät</th>
+            <th>Patient</th>
+            <th>Start</th>
+            <th>Ende</th>
+            <th>Region</th>
+            <th>Kommentar</th>
+        </tr>
+        </thead>
+

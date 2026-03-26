@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Neue Reservierung</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Neue Reservierung</h2>
+    <form th:action="@{/reservation/add}" method="post">
+        <div class="form-group">
+            <label>Patient</label>
+            <select name="patientId" class="form-control">
+                <option th:each="p : ${patients}" th:value="${p.id}"
+                        th:text="${p.firstName + ' ' + p.lastName + ' (' + p.ssn + ')'}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Gerät</label>
+            <select name="deviceId" class="form-control">
+                <option th:each="d : ${devices}" th:value="${d.id}"
+                        th:text="${d.id + ' - ' + d.type + ' (' + d.location + ')'}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Startzeit</label>
+            <input type="datetime-local" name="startTime" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Endzeit</label>
+            <input type="datetime-local" name="endTime" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Körperregion</label>
+            <select name="bodyRegion" class="form-control">
+                <option th:each="r : ${regions}" th:value="${r}" th:text="${r}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Kommentar</label>
+            <textarea name="comment" class="form-control"></textarea>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Reservieren">
+    </form>
+</div>
+</body>
+</html>
+
