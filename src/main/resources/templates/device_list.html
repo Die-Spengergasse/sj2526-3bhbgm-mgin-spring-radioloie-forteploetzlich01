@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Geräteliste</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Geräte</h2>
+    <a href="/device/add" class="btn btn-primary">Neues Gerät</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Art</th>
+            <th>Standort</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="d : ${devices}">
+            <td th:text="${d.id}"></td>
+            <td th:text="${d.type}"></td>
+            <td th:text="${d.location}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+

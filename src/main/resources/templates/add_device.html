@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerät hinzufügen</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h2>Gerät hinzufügen</h2>
+    <form th:action="@{/device/add}" th:object="${device}" method="post">
+        <div class="form-group">
+            <label>Bezeichnung (ID)</label>
+            <input type="text" th:field="*{id}" class="form-control" placeholder="z.B. MR-01" required>
+        </div>
+        <div class="form-group">
+            <label>Art des Gerätes</label>
+            <input type="text" th:field="*{type}" class="form-control" placeholder="z.B. MR, CT, Röntgen" required>
+        </div>
+        <div class="form-group">
+            <label>Standort (Raumnummer)</label>
+            <input type="text" th:field="*{location}" class="form-control" placeholder="z.B. Raum 101" required>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Speichern">
+    </form>
+</div>
+</body>
+</html>
+

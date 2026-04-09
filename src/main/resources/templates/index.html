@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+<html lang="de" xmlns:th="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Greeting</title>
+    <title>Radiologie - Start</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1>Hallo</h1>
-    Datum: <span th:text="${today}"></span>
-    <div>
-        <a href="/patient/list">patient list</a>
-    </div>
+    <h1>Radiologie-Institut</h1>
+    <p>Willkommen im Reservierungssystem</p>
+    <ul>
+        <li><a href="/patient/list">Patientenliste</a></li>
+        <li><a href="/patient/add">Neuen Patienten registrieren</a></li>
+        <li><a href="/device/list">Geräteliste</a></li>
+        <li><a href="/device/add">Neues Gerät anlegen</a></li>
+        <li><a href="/reservation/list">Reservierungen anzeigen</a></li>
+        <li><a href="/reservation/add">Neue Reservierung</a></li>
+    </ul>
 </div>
 </body>
 </html>
