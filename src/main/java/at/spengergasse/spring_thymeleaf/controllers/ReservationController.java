@@ -49,7 +49,7 @@ public class ReservationController {
 
     @GetMapping("/list")
     public String list(@RequestParam(required = false) String deviceId, Model model) {
-        if (deviceId != null) {
+        if (deviceId != null && deviceId != "") {
             model.addAttribute("reservations", reservationRepository.findByDeviceIdOrderByStartTime(deviceId));
         } else {
             model.addAttribute("reservations", reservationRepository.findAll());

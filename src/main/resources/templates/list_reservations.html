@@ -1,19 +1,7 @@
-        <tbody>
-        <tr th:each="r : ${reservations}">
-            <td th:text="${r.device.id}"></td>
-            <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
-            <td th:text="${#dates.format(r.startTime, 'dd.MM.yyyy HH:mm')}"></td>
-            <td th:text="${#dates.format(r.endTime, 'dd.MM.yyyy HH:mm')}"></td>
-            <td th:text="${r.bodyRegion}"></td>
-            <td th:text="${r.comment}"></td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-</body>
-</html>
+
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Reservierungsliste</title>
@@ -33,6 +21,7 @@
         </div>
         <input type="submit" value="Filtern" class="btn btn-default">
         <a href="/reservation/add" class="btn btn-primary">Neue Reservierung</a>
+        <a href="/" class="btn btn-default">← Zurück zur Startseite</a>  <!-- NEU -->
     </form>
 
     <table class="table table-striped">
@@ -46,4 +35,17 @@
             <th>Kommentar</th>
         </tr>
         </thead>
-
+        <tbody>
+        <tr th:each="r : ${reservations}">
+            <td th:text="${r.device.id}"></td>
+            <td th:text="${r.patient.firstName + ' ' + r.patient.lastName}"></td>
+            <td th:text="${#temporals.format(r.startTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${#temporals.format(r.endTime, 'dd.MM.yyyy HH:mm')}"></td>
+            <td th:text="${r.bodyRegion}"></td>
+            <td th:text="${r.comment}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

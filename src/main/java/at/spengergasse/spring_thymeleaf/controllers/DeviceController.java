@@ -27,6 +27,7 @@ public class DeviceController {
     @GetMapping("/add")
     public String addForm(Model model) {
         model.addAttribute("device", new Device());
+
         return "add_device";
     }
 
